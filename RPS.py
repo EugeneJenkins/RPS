@@ -24,7 +24,7 @@ UserName2="Comp"
 Score1=0
 Score2=0
 result=''
-
+choice=''
 
 
 
@@ -70,6 +70,10 @@ def answer(player):
     canvas.itemconfig(s1, text=Score1)
     canvas.itemconfig(s2, text=Score2)
 
+
+    array=["Rock","Paper","Scissors"]
+    canvas.itemconfig(ch, text=array[computer-1])
+
     print(player)
     print(computer)
     print("\n")
@@ -101,7 +105,11 @@ canvas.create_text(180, 255, fill = '#f3f3f3',font=("Impact", 50),text=UserName,
 canvas.create_text(771, 255, fill = '#f3f3f3',font=("Impact", 50),text=UserName2, anchor=NW)
 s1=canvas.create_text(232, 144, fill = '#f3f3f3',font=("Impact", 60),text=Score1, anchor=NW)
 s2=canvas.create_text(839, 144, fill = '#f3f3f3',font=("Impact", 60),text=Score2, anchor=NW)
-res=canvas.create_text(540, 611, justify='center',fill = '#f3f3f3',font=("Impact", 25),text=result, anchor=NW)
+res=canvas.create_text(580, 631, justify='center',fill = '#f3f3f3',font=("Impact", 25),text=result, anchor=NW)
+
+canvas.create_text(580, 570, justify='center',fill = '#f3f3f3',font=("Impact", 25),text="Computer selection:", anchor=NW)
+ch=canvas.create_text(880, 570, justify='center',fill = '#f3f3f3',font=("Impact", 25),text=choice, anchor=NW)
+
 
 canvas.tag_bind(RockButton, "<Button-1>", clicked1)
 canvas.tag_bind(PaperkButton, "<Button-1>", clicked2)
