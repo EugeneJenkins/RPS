@@ -9,9 +9,8 @@ root.maxsize(width=1080, height=720)
 canvas=Canvas(root,width=1080, height=720)
 
 image1 =PhotoImage(file ="images/background.png")
-round1=PhotoImage(file ="images/round1.png")
-round2=PhotoImage(file ="images/round2.png")
-round3=PhotoImage(file ="images/round3.png")
+
+
 user=PhotoImage(file ="images/user.png")
 comp=PhotoImage(file ="images/comp.png")
 rock=PhotoImage(file ="images/Rock.png")
@@ -25,7 +24,7 @@ Score1=0
 Score2=0
 result=''
 choice=''
-
+Round=0
 
 
 # 1=ROCK 
@@ -38,7 +37,7 @@ def companswer():
 
 
 def answer(player): 
-    global Score1,Score2
+    global Score1,Score2,Round
     computer= companswer()
     if player == computer:
         result="Tie!"
@@ -65,11 +64,11 @@ def answer(player):
             Score1+=1
     print(result)
     
-
+    Round+=1
     canvas.itemconfig(res, text=result)
     canvas.itemconfig(s1, text=Score1)
     canvas.itemconfig(s2, text=Score2)
-
+    canvas.itemconfig(rd, text=Round)
 
     array=["Rock","Paper","Scissors"]
     canvas.itemconfig(ch, text=array[computer-1])
@@ -93,7 +92,6 @@ def clicked3(event):
 
 
 canvas.create_image(0, 0, image=image1, anchor=NW)
-canvas.create_image(398, 2, image=round1, anchor=NW)
 canvas.create_image(157, 353, image=user, anchor=NW)
 canvas.create_image(728, 353, image=comp, anchor=NW)
 
@@ -101,6 +99,8 @@ RockButton=canvas.create_image(30, 584, image=rock, anchor=NW)
 PaperkButton=canvas.create_image(157, 584, image=paper, anchor=NW)
 ScissorsButton=canvas.create_image(288, 584, image=scissors, anchor=NW)
 
+canvas.create_text(380, -1, fill = '#f3f3f3',font=("Impact", 50),text="Round", anchor=NW)
+rd=canvas.create_text(682, -1, fill = '#f3f3f3',font=("Impact", 50),text=Round, anchor=NW)
 canvas.create_text(180, 255, fill = '#f3f3f3',font=("Impact", 50),text=UserName, anchor=NW)
 canvas.create_text(771, 255, fill = '#f3f3f3',font=("Impact", 50),text=UserName2, anchor=NW)
 s1=canvas.create_text(232, 144, fill = '#f3f3f3',font=("Impact", 60),text=Score1, anchor=NW)
